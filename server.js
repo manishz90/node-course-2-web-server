@@ -1,6 +1,7 @@
 const express = require("express");
 const hbs = require("hbs");
 const fs = require("fs");
+const port = process.env.PORT || 3000;
 
 var app = express();
 
@@ -21,9 +22,9 @@ app.use((req, res, next) => {
 });
 
 
-app.use((req, res, next) => {
-  res.render('maintenance.hbs');
-});
+// app.use((req, res, next) => {
+//   res.render('maintenance.hbs');
+// });
 
 app.use(express.static(__dirname + '/public'));
 
@@ -47,4 +48,4 @@ app.get('/about', (req, res) =>{
   });
 });
 
-app.listen(3000);
+app.listen(port);
